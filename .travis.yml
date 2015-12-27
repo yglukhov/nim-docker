@@ -1,0 +1,6 @@
+sudo: required
+services:
+  - docker
+script:
+  - docker login "--password=$DOCKER_PASS" "--username=$DOCKER_USER"
+  - docker build --no-cache=true -t yglukhov/devel . && docker push yglukhov/devel
