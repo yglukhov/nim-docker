@@ -3,5 +3,6 @@ services:
   - docker
 script:
   - docker login "--password=$DOCKER_PASS" "--username=$DOCKER_USER" "--email=$DOCKER_EMAIL"
-  - docker build --no-cache=true -t yglukhov/devel . && docker push yglukhov/devel
+  - docker build --no-cache=true -t yglukhov/devel .
+  - docker push yglukhov/devel
   - docker logout
