@@ -9,5 +9,5 @@ RUN apt-get update \
     && cd nim \
     && ./bootstrap.sh \
     && nim e ./install_nimble.nims \
-    && nimble install -y nake \
+    && nimble install -y nimble \
     && echo "    IdentityFile ~/.ssh/id_rsa" >> /etc/ssh/ssh_config
