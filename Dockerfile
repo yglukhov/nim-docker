@@ -8,7 +8,7 @@ RUN apt-get update \
     && git clone --depth 1 https://github.com/nim-lang/nim.git \
     && cd nim \
     && ./bootstrap.sh \
-    && cd -
-    && git clone --depth 1 https://github.com/nim-lang/nimble.git
-    && nim c -r nimble/src/nimble install -y nimble
+    && cd - \
+    && git clone --depth 1 https://github.com/nim-lang/nimble.git \
+    && nim c -r nimble/src/nimble install -y nimble \
     && echo "    IdentityFile ~/.ssh/id_rsa" >> /etc/ssh/ssh_config
