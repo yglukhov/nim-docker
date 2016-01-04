@@ -3,7 +3,7 @@ MAINTAINER Yuriy Glukhov <yuriy.glukhov@gmail.com>
 ENV PATH $PATH:/nim/bin:/root/.nimble/bin
 RUN apt-get update \
     && apt-get install -y gcc git mercurial libsdl2-dev libopenal-dev \
-        libvorbis0a libogg0 nodejs fonts-dejavu-core xvfb gtk \
+        libvorbis0a libogg0 nodejs fonts-dejavu-core xvfb libgtk-3-dev \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
     && git clone --depth 1 https://github.com/nim-lang/nim.git \
