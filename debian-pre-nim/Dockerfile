@@ -7,3 +7,4 @@ RUN echo deb http://http.debian.net/debian jessie-backports main contrib non-fre
     && echo "    IdentityFile ~/.ssh/id_rsa" >> /etc/ssh/ssh_config \
     && mkdir /onStart.d /onQuit.d
 ADD run.sh /bin/run
+ADD apt-unstable-policy /etc/apt/preferences.d/unstable
