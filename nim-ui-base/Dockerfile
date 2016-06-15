@@ -3,7 +3,8 @@ MAINTAINER Yuriy Glukhov <yuriy.glukhov@gmail.com>
 ENV LD_LIBRARY_PATH /usr/lib/x86_64-linux-gnu/
 ENV DISPLAY :1.0
 
-RUN apt-get install -y fonts-dejavu-core xvfb unzip curl libsdl2-dev \
+RUN apt-get update \
+    && apt-get install -y fonts-dejavu-core xvfb unzip curl libsdl2-dev \
     && echo 'Xvfb :1 -screen 0 1024x768x16 +extension RANDR &' > /onStart.d/010-start-x-server.sh \
     && echo "DOWNLOADING SDL" \
     && curl -O https://www.libsdl.org/release/SDL2-2.0.4.zip \
