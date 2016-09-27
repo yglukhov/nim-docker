@@ -1,8 +1,7 @@
-FROM debian:stable
+FROM debian:stretch
 MAINTAINER Yuriy Glukhov <yuriy.glukhov@gmail.com>
 ADD run.sh /bin/run
-RUN echo deb http://http.debian.net/debian jessie-backports main contrib non-free >> /etc/apt/sources.list \
-    && while ! apt-get update; do true; done \
+RUN while ! apt-get update; do true; done \
     && while ! apt-get install -y gcc mercurial git nodejs; do true; done \
     && echo "    IdentityFile ~/.ssh/id_rsa" >> /etc/ssh/ssh_config \
     && mkdir /onStart.d /onQuit.d \
