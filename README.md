@@ -1,6 +1,6 @@
 # nim-docker [![Build Status](https://travis-ci.org/yglukhov/nim-docker.svg?branch=master)](https://travis-ci.org/yglukhov/nim-docker)
 
-This is a helper repo for auto building docker container with latest [Nim](https://github.com/nim-lang/Nim) devel version. In order to setup [Travis CI](https://travis-ci.org) for your project using this container, copy the following lines to your `.travis.yml` file in the root of your repository:
+This is a helper repo for auto building docker image with latest [Nim](https://github.com/nim-lang/Nim) devel version. In order to setup [Travis CI](https://travis-ci.org) for your project using this image, copy the following lines to your `.travis.yml` file in the root of your repository:
 ```yml
 sudo: required
 services:
