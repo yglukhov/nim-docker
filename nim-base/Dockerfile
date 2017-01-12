@@ -12,7 +12,7 @@ RUN git clone --depth 1 https://github.com/nim-lang/nim.git \
     && ./koch nimble \
     && echo echo nim version: $(git rev-parse HEAD) > /onStart.d/005-nim-version.sh \
     && chmod +x /onStart.d/005-nim-version.sh \
-    && cd ./dist/nimble
+    && cd ./dist/nimble \
     && echo echo nimble version: $(git rev-parse HEAD) > /onStart.d/006-nimble-version.sh \
     && chmod +x /onStart.d/005-nimble-version.sh \
     && cd ../.. \
