@@ -1,9 +1,11 @@
 FROM yglukhov/debian-pre-nim
 MAINTAINER Yuriy Glukhov <yuriy.glukhov@gmail.com>
 ENV PATH $PATH:/nim/bin:/root/.nimble/bin
-RUN git clone --depth 1 https://github.com/nim-lang/nim.git \
+RUN git clone https://github.com/nim-lang/nim.git \
     && cd nim \
-    && git merge origin/zahary \
+    && git config --global user.name docker \
+    && git config --global user.email docker@docker.com \
+    && git merge --no-commit origin/zahary \
     && git clone --depth 1 https://github.com/nim-lang/csources.git \
     && cd csources \
     && sh build.sh \
@@ -17,5 +19,5 @@ RUN git clone --depth 1 https://github.com/nim-lang/nim.git \
     && echo echo nimble version: $(git rev-parse HEAD) > /onStart.d/006-nimble-version.sh \
     && chmod +x /onStart.d/006-nimble-version.sh \
     && cd ../.. \
-    && rm -rf ./nimcache ./compiler/nimcache ./csources ./dist \
+    && rm -rf ./nimcache ./compiler/nimcache ./csources ./dist ./.git \
     && cd ..
