@@ -3,6 +3,7 @@ MAINTAINER Yuriy Glukhov <yuriy.glukhov@gmail.com>
 ENV PATH $PATH:/nim/bin:/root/.nimble/bin
 RUN git clone --depth 1 https://github.com/nim-lang/nim.git \
     && cd nim \
+    && git merge origin/zah \
     && git clone --depth 1 https://github.com/nim-lang/csources.git \
     && cd csources \
     && sh build.sh \
