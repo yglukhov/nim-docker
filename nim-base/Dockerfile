@@ -1,7 +1,7 @@
 FROM yglukhov/debian-pre-nim
 MAINTAINER Yuriy Glukhov <yuriy.glukhov@gmail.com>
 ENV PATH $PATH:/nim/bin:/root/.nimble/bin
-ENV NIM_PATCH_BRANCHES movedir
+ENV NIM_PATCH_BRANCHES movedir fix-5946
 RUN git clone https://github.com/nim-lang/nim.git \
     && cd nim \
     && git remote add yglukhov https://github.com/yglukhov/nim.git \
