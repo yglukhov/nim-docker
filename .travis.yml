@@ -2,4 +2,4 @@ sudo: required
 services:
   - docker
 script:
-  - docker login "--password=$DOCKER_PASS" "--username=$DOCKER_USER" "--email=$DOCKER_EMAIL" && ./build.sh && docker logout
+  - docker login "--password=$DOCKER_PASS" "--username=$DOCKER_USER" && ./build.sh && docker logout
