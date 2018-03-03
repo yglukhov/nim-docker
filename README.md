@@ -9,6 +9,6 @@ before_install:
   - docker pull yglukhov/nim-base
 script:
   - docker run yglukhov/nim-base nim --version
-  - docker run -v "$(pwd):/project" -w /project yglukhov/nim-base nimble tests
+  - docker run -v "$(pwd):/project" -w /project yglukhov/nim-base nimble test
 ```
-Also make sure to enable your project in [Travis CI](https://travis-ci.org). This configuration will run `nimble tests` in the root of your repository.
+Also make sure to enable your project in [Travis CI](https://travis-ci.org). This configuration will run `nimble test` in the root of your repository.
