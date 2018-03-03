@@ -8,6 +8,7 @@ RUN git clone https://github.com/nim-lang/nim.git \
     && git fetch yglukhov \
     && git config --global user.email "you@example.com" \
     && git config --global user.name "Your Name" \
+    && git merge origin/fix-6415 \
     && for i in $NIM_PATCH_BRANCHES; do git merge yglukhov/$i; done \
     && git clone --depth 1 https://github.com/nim-lang/csources.git \
     && cd csources \
