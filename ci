@@ -1,0 +1,6 @@
+
+set -e
+docker login "--password=$DOCKER_PASS" "--username=$DOCKER_USER"
+$(dirname $0)/build.sh $*
+docker logout
+

@@ -1,5 +1,22 @@
 sudo: required
+
 services:
   - docker
-script:
-  - docker login "--password=$DOCKER_PASS" "--username=$DOCKER_USER" && ./build.sh && docker logout
+
+stages:
+  - s1
+  - s2
+
+jobs:
+  include:
+    - stage: s1
+      script: ./ci debian-jessie.base debian-jessie.base.nim
+    - script: ./ci debian-stretch.base debian-stretch.base.nim debian-stretch.base.nim.ui
+    - script: ./ci debian-stretch.base.wasm.nim
+    - stage: s2
+      script: ./ci-tag debian-jessie-pre-nim debian-jessie.base
+    - script: ./ci-tag debian-jessie-nim-base debian-jessie.base.nim
+    - script: ./ci-tag debian-pre-nim debian-stretch.base
+    - script: ./ci-tag nim-base debian-stretch.base.nim
+    - script: ./ci-tag nim-ui-base debian-stretch.base.nim.ui
+
