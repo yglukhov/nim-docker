@@ -9,8 +9,7 @@ apt_install nodejs
 echo "    IdentityFile ~/.ssh/id_rsa" >> /etc/ssh/ssh_config
 mkdir /onStart.d /onQuit.d
 
-cat << EOF > /bin/run
-#!/bin/sh
+echo '#!/bin/sh
 for I in $(ls /onStart.d)
 do
     . /onStart.d/$I
@@ -26,7 +25,8 @@ do
 done
 
 exit $EXIT_CODE
-EOF
+' > /bin/run
+
 chmod +x /bin/run
 
 apt-get remove -y curl
