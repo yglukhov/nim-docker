@@ -2,7 +2,7 @@ ENV PATH $PATH:/root/.cargo/bin
 
 # SCRIPT
 apt_install cmake make curl libc6-dev-i386
-tag=release_70
+tag=release_80
 
 git clone --depth 1 --branch $tag https://github.com/llvm-mirror/llvm.git
 cd llvm/tools
