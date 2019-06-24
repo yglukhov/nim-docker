@@ -12,7 +12,7 @@ cd ..
 mkdir build
 cd build
 #-DLLVM_LINK_LLVM_DYLIB=ON
-cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -DLLVM_TARGETS_TO_BUILD= -DLLVM_EXPERIMENTAL_TARGETS_TO_BUILD=WebAssembly ..
+cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -DLLVM_TARGETS_TO_BUILD=WebAssembly ..
 make -j 4 install
 
 cd ../..
