@@ -10,7 +10,7 @@ stages:
 jobs:
   include:
     - stage: s1
-      script: ./ci debian-buster.base debian-buster.base.nim
+      script: ./ci debian-buster.base debian-buster.base.nim debian-buster.base.nim.ui
     - script: ./ci debian-stretch.base debian-stretch.base.nim debian-stretch.base.nim.ui
     - script: ./ci debian-stretch.base.wasm.nim
     - stage: s2
