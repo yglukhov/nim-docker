@@ -13,13 +13,7 @@ for i in $NIM_PATCH_BRANCHES
 do
   git merge yglukhov/$i
 done
-git clone --depth 1 https://github.com/nim-lang/csources.git
-cd csources
-sh build.sh
-cd ..
-nim c koch
-./koch boot -d:release
-./koch nimble
+sh build_all.sh
 echo echo nim version: $(git rev-parse HEAD) > /onStart.d/005-nim-version.sh
 chmod +x /onStart.d/005-nim-version.sh
 cd ./dist/nimble
