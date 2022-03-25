@@ -1,0 +1,31 @@
+name: CI
+
+on: push
+jobs:
+  Test:
+    if: |
+      !contains(github.event.head_commit.message, '[skip ci]')
+    strategy:
+      fail-fast: false
+
+    name: Docker
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Stage1
+      shell: bash
+      run: |
+        ./ci debian-buster.base debian-buster.base.nim debian-buster.base.nim.ui
+        ./ci debian-stretch.base debian-stretch.base.nim debian-stretch.base.nim.ui
+        ./ci debian-stretch.base.wasm.nim
+        ./ci ubuntu-2104.base.nim
+
+    - name: Stage2
+      shell: bash
+      run: |
+        ./ci-tag debian-buster-pre-nim debian-buster.base
+        ./ci-tag debian-buster-nim-base debian-buster.base.nim
+        ./ci-tag debian-pre-nim debian-buster.base
+        ./ci-tag nim-base debian-buster.base.nim
+        ./ci-tag nim-ui-base debian-buster.base.nim.ui
