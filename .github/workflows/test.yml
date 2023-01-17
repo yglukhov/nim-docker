@@ -11,27 +11,24 @@ jobs:
       !contains(github.event.head_commit.message, '[skip ci]')
     strategy:
       fail-fast: false
+      matrix:
+        builds:
+          - debian-buster.base debian-buster.base.nim debian-buster.base.nim.ui
+          - debian-stretch.base debian-stretch.base.nim debian-stretch.base.nim.ui
+          - ubuntu-2104.base ubuntu-2104.base.nim
+
     env:
       DOCKER_USER: ${{ secrets.DOCKER_USER }}
       DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
 
-    # name: Docker
+    name: ${{matrix.build}}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
 
-    - name: debian-buster
+    - name: build
       run: |
-        ./ci debian-buster.base debian-buster.base.nim debian-buster.base.nim.ui
-
-    - name: debian-stretch
-      run: |
-        ./ci debian-stretch.base debian-stretch.base.nim debian-stretch.base.nim.ui
-        # ./ci debian-stretch.base.wasm.nim
-
-    - name: ubuntu-2104
-      run: |
-        ./ci ubuntu-2104.base ubuntu-2104.base.nim
+        ./ci ${{matrix.build}}
 
     # - name: Tags
     #   shell: bash
