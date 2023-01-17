@@ -1,7 +1,7 @@
 
 # SCRIPT
 
-apt_install gcc g++ mercurial git libssl-dev curl gnupg
+apt_install gcc g++ mercurial git libssl-dev curl gnupg make
 # Install nodejs 15
 curl -sL https://deb.nodesource.com/setup_15.x | bash
 apt_install nodejs
