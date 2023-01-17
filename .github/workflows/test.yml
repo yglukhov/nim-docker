@@ -19,7 +19,8 @@ jobs:
 
     - name: Stage1
       shell: bash
-      env: ${{ secrets.DOCKER_USER }}
+      env:
+        DOCKER_USER: ${{ secrets.DOCKER_USER }}
 
       run: |
         ./ci debian-buster.base debian-buster.base.nim debian-buster.base.nim.ui
