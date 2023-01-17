@@ -1,6 +1,8 @@
 
 set -e
+rm -f ~/.docker/config.json
 docker login "--password=$DOCKER_PASS" "--username=$DOCKER_USER"
+cat ~/.docker/config.json
 $(dirname $0)/build.sh $*
 docker logout
 
