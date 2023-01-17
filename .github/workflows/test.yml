@@ -21,14 +21,14 @@ jobs:
       DOCKER_USER: ${{ secrets.DOCKER_USER }}
       DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
 
-    name: ${{matrix.build}}
+    name: ${{matrix.builds}}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
 
     - name: build
       run: |
-        ./ci ${{matrix.build}}
+        ./ci ${{matrix.builds}}
 
     # - name: Tags
     #   shell: bash
