@@ -15,10 +15,12 @@ jobs:
     name: Docker
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
     - name: Stage1
       shell: bash
+      env: ${{ secrets.DOCKER_USER }}
+
       run: |
         ./ci debian-buster.base debian-buster.base.nim debian-buster.base.nim.ui
         ./ci debian-stretch.base debian-stretch.base.nim debian-stretch.base.nim.ui
