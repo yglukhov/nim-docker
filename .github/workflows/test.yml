@@ -19,8 +19,8 @@ jobs:
 
     - name: Stage1
       shell: bash
-      with: # Set the secret as an input
-        DOCKER_USER: ${{ secrets.DOCKER_USER }}
+      # with: # Set the secret as an input
+      #   DOCKER_USER: ${{ secrets.DOCKER_USER }}
       env:
         DOCKER_USER: ${{ secrets.DOCKER_USER }}
 
