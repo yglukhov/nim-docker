@@ -1,5 +1,6 @@
 
 set -e
+echo "DOCKER: $DOCKER_USER"
 cat ~/.docker/config.json
 docker logout
 docker login "--password=$DOCKER_PASS" "--username=$DOCKER_USER"
