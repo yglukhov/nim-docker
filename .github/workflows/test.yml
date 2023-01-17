@@ -6,7 +6,7 @@ on:
     - cron: '0 0 * * *'
 
 jobs:
-  Test:
+  Build:
     if: |
       !contains(github.event.head_commit.message, '[skip ci]')
     strategy:
@@ -15,7 +15,7 @@ jobs:
       DOCKER_USER: ${{ secrets.DOCKER_USER }}
       DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
 
-    name: Docker
+    # name: Docker
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
