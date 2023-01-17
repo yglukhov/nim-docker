@@ -1,7 +1,7 @@
 
 set -ex
 
-docker login "--password=$DOCKER_PASS" "--username=$DOCKER_USER"
+echo "$DOCKER_PASS" | docker login --password-stdin "--username=$DOCKER_USER"
 docker pull yglukhov/$2
 docker tag yglukhov/$2 yglukhov/$1
 docker push yglukhov/$1

@@ -3,7 +3,7 @@
 
 apt_install gcc g++ mercurial git libssl-dev curl gnupg make
 # Install nodejs 15
-curl -sL https://deb.nodesource.com/setup_15.x | bash
+curl -sL https://deb.nodesource.com/setup_16.x | bash
 apt_install nodejs
 
 echo "    IdentityFile ~/.ssh/id_rsa" >> /etc/ssh/ssh_config
