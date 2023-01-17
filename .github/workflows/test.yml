@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
     env:
-      DOCKER_USER: ${{ secrets.DOCKER_USER }}
+      DOCKER_USER: ${{ secrets.BLABLA }}
 
     name: Docker
     runs-on: ubuntu-latest
