@@ -19,10 +19,13 @@ jobs:
 
     - name: Stage1
       shell: bash
+      with: # Set the secret as an input
+        DOCKER_USER: ${{ secrets.DOCKER_USER }}
       env:
         DOCKER_USER: ${{ secrets.DOCKER_USER }}
 
       run: |
+        echo "DOCKER_USER: $DOCKER_USER"
         ./ci debian-buster.base debian-buster.base.nim debian-buster.base.nim.ui
         ./ci debian-stretch.base debian-stretch.base.nim debian-stretch.base.nim.ui
         ./ci debian-stretch.base.wasm.nim
