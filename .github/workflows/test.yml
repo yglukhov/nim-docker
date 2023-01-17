@@ -20,19 +20,24 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Stage1
-      shell: bash
+    - name: debian-buster
       run: |
         ./ci debian-buster.base debian-buster.base.nim debian-buster.base.nim.ui
+
+    - name: debian-stretch
+      run: |
         ./ci debian-stretch.base debian-stretch.base.nim debian-stretch.base.nim.ui
         # ./ci debian-stretch.base.wasm.nim
-        ./ci ubuntu-2104.base.nim
 
-    - name: Stage2
-      shell: bash
+    - name: ubuntu-2104
       run: |
-        ./ci-tag debian-buster-pre-nim debian-buster.base
-        ./ci-tag debian-buster-nim-base debian-buster.base.nim
-        ./ci-tag debian-pre-nim debian-buster.base
-        ./ci-tag nim-base debian-buster.base.nim
-        ./ci-tag nim-ui-base debian-buster.base.nim.ui
+        ./ci ubuntu-2104.base ubuntu-2104.base.nim
+
+    # - name: Tags
+    #   shell: bash
+    #   run: |
+    #     ./ci-tag debian-buster-pre-nim debian-buster.base
+    #     ./ci-tag debian-buster-nim-base debian-buster.base.nim
+    #     ./ci-tag debian-pre-nim debian-buster.base
+    #     ./ci-tag nim-base debian-buster.base.nim
+    #     ./ci-tag nim-ui-base debian-buster.base.nim.ui
