@@ -14,7 +14,7 @@ jobs:
       matrix:
         builds:
           - debian-buster.base debian-buster.base.nim debian-buster.base.nim.ui
-          - debian-stretch.base debian-stretch.base.nim debian-stretch.base.nim.ui
+          # - debian-stretch.base debian-stretch.base.nim debian-stretch.base.nim.ui
           - ubuntu-2204.base ubuntu-2204.base.nim
 
     env:
